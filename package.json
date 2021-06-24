@@ -1,0 +1,13 @@
+{
+  "name": "Flud-API",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/ViniciusCMelo/Flud-API.git",
+  "author": "Vinícius Melo <ViniciusCMelo@users.noreply.github.com>",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "firebase-admin": "^9.9.0"
+  }
+}
