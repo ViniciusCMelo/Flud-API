@@ -3,12 +3,13 @@ require('dotenv').config();
 
 const serviceAccount = process.env.GOOGLE_APPLICATION_CREDENTIALS;
 
-const app = admin.initializeApp({
+const firebaseApp = admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
     databaseURL: "https://flud-reactnative-default-rtdb.firebaseio.com"
 });
-const db = app.firestore();
+const db = firebaseApp.firestore();
 
+/*
 db.collection("users").doc("lragozzine").set({
     first: 'Vinicius',
     last: 'Ragozzine',
@@ -16,4 +17,5 @@ db.collection("users").doc("lragozzine").set({
     birthday: '05/13/1990',
     age: '30',
 });
+*/
 
