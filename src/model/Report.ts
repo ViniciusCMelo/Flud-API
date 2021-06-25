@@ -5,10 +5,9 @@ export default class Report {
     latitude: number;
     longitude: number;
     description: string;
+    source: string;
     startDate: string;
     finishDate: string;
-    status: boolean;
     range: number;
-    reports: report[];
     hazards: Hazard[];
 }

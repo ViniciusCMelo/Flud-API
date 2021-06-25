@@ -1,13 +1,11 @@
-import {request, response} from "express";
 import './database/connection';
-const express = require('express');
+import express from 'express';
+
+import routes from "./routes";
 
 const app = express();
 
-app.get('/users', (request, response) => {
-    return response.json({ message: 'Hello World'});
-});
+app.use(express.json());
+app.use(routes);
 
-
-//localhost:3333
 app.listen(3333);

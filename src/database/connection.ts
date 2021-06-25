@@ -7,7 +7,9 @@ const firebaseApp = admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
     databaseURL: "https://flud-reactnative-default-rtdb.firebaseio.com"
 });
-const db = firebaseApp.firestore();
+
+export const db = firebaseApp.firestore();
+
 
 /*
 db.collection("users").doc("lragozzine").set({
@@ -18,4 +20,5 @@ db.collection("users").doc("lragozzine").set({
     age: '30',
 });
 */
+
 
