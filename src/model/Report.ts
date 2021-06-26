@@ -1,13 +1,41 @@
 import Hazard from "./Hazard";
+import Image from "./Image";
 
 export default class Report {
-    id: number;
+    id: string;
+    floodId: string;
     latitude: number;
     longitude: number;
     description: string;
     source: string;
-    startDate: string;
-    finishDate: string;
+    reportDate: string;
+    status: boolean;
     range: number;
-    hazards: Hazard[];
+    images: string[];
+    hazards: string[];
+
+    constructor(id: string = '',
+                floodId: string,
+                latitude: number,
+                longitude: number,
+                source: string,
+                description: string,
+                reportDate: string,
+                status: boolean,
+                range: number,
+                images: string[],
+                hazards: string[],
+    ) {
+        this.id = id;
+        this.floodId = floodId;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.description = description;
+        this.source = source;
+        this.reportDate = reportDate;
+        this.status = status;
+        this.range = range;
+        this.images = images;
+        this.hazards = hazards;
+    }
 }

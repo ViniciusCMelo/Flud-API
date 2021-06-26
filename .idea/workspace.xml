@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6517c5ae-1488-4f06-978a-e01f757bac53" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/UsersController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/UsersController.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Flood.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Flood.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Hazard.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Hazard.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Report.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Report.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,7 +39,7 @@
       <updated>1624561497530</updated>
       <workItem from="1624561498757" duration="11683000" />
       <workItem from="1624633052730" duration="1172000" />
-      <workItem from="1624653075484" duration="12764000" />
+      <workItem from="1624653075484" duration="17449000" />
     </task>
     <servers />
   </component>
