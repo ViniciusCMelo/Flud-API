@@ -9,6 +9,7 @@ export default class User {
     city: string;
     state: string;
 
+
     constructor(id: string, name: string, email: string, profilePictureUrl: string) {
         this.id = id;
         this.name = name;
