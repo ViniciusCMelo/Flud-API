@@ -14,5 +14,6 @@ routes.post('/floods', FloodsController.create);
 routes.post('/hazards', HazardsController.create);
 
 routes.post('/reports', ReportsController.create);
+routes.get('/reports/:floodId', ReportsController.show);
 
 export default routes;
