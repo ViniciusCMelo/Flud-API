@@ -12,7 +12,23 @@ export default class Flood {
     finishDate: string;
     status: boolean;
     range: number;
-    reports: Report[];
+    reports: string[];
     images: Image[];
     hazards: Hazard[];
+
+    constructor(latitude: number,
+                longitude: number,
+                type: string,
+                source: string,
+                description: string,
+                startDate: string,
+                finishDate: string,
+                status: boolean = true,
+                range: number,
+                reports: string[],
+                images: string[],
+                hazards: string[],
+                ) {
+
+    }
 }

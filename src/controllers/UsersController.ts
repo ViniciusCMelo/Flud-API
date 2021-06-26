@@ -8,6 +8,7 @@ export default {
         const id = request.body;
         const userRepository = await db.collection('users').get();
         const users: User[] = [];
+        // @ts-ignore
         userRepository.forEach((doc) => {
             users.push(new User(doc.id, doc.data().name, doc.data().email, doc.data().profilePictureUrl));
         });
