@@ -11,8 +11,13 @@ export default class Report {
     reportDate: string;
     status: boolean;
     range: number;
-    images: string[];
-    hazards: string[];
+    images: {
+        path: string
+    };
+    hazards: {
+        type: string,
+        status: true,
+    };
 
     constructor(id: string = '',
                 floodId: string,
@@ -23,8 +28,8 @@ export default class Report {
                 reportDate: string,
                 status: boolean,
                 range: number,
-                images: string[],
-                hazards: string[],
+                images: any,
+                hazards: any,
     ) {
         this.id = id;
         this.floodId = floodId;

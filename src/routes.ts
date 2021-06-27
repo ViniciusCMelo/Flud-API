@@ -20,7 +20,7 @@ routes.post('/floods', FloodsController.create);
 
 routes.post('/hazards', HazardsController.create);
 
-routes.post('/reports', Multer.single("images"), uploadImage, ReportsController.create);
+routes.post('/reports', Multer.array("images"), uploadImage, ReportsController.create);
 routes.get('/reports/:floodId', ReportsController.show);
 
 export default routes;

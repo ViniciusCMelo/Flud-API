@@ -1,7 +1,8 @@
 import {db} from "../database/connection";
-import {Request, Response} from "express";
+import {json, Request, Response} from "express";
 import Flood from "../model/Flood";
 import Report from "../model/Report";
+import Hazard from "../model/Hazard";
 
 export default {
 
@@ -24,8 +25,10 @@ export default {
     },
 
     async create(request: Request, response: Response) {
-        console.log(request.file);
-        const {firebaseUrl} = request.file ? request.file : "";
+        const requestImages = request.files as Express.Multer.File[];
+        const images = requestImages.map(image => {
+            return {path: image.firebaseUrl}
+        });
         const {
             floodId,
             latitude,
@@ -35,10 +38,15 @@ export default {
             reportDate,
             status,
             range,
-            hazards,
+            hazards
         } = request.body;
+        const hazardsJson = JSON.parse(hazards);
+        const requestHazards = hazardsJson.map(hazard=> {
+            return {type: hazard.type, status: hazard.status}
+        });
+
         const report = new Report('', floodId, latitude, longitude, source, description, reportDate, status, range,
-            firebaseUrl, hazards);
+            images, requestHazards);
         const doc = await db.collection("reports").add({
             floodId: report.floodId,
             latitude: report.latitude,
@@ -51,6 +59,6 @@ export default {
             images: report.images,
             hazards: report.hazards,
         });
-        return response.status(201).json(report);
+        return response.status(201).send(report);
     }
 };
