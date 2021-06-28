@@ -4,6 +4,7 @@ import Hazard from "./Hazard";
 
 export default class Flood {
     id: string;
+    userId: string;
     latitude: number;
     longitude: number;
     type: string;
@@ -24,6 +25,7 @@ export default class Flood {
     };
 
     constructor(id: string,
+                userId: string,
                 latitude: number,
                 longitude: number,
                 type: string,
@@ -39,6 +41,7 @@ export default class Flood {
                 hazards: any,
     ) {
         this.id = id;
+        this.userId = userId;
         this.latitude = latitude;
         this.longitude = longitude;
         this.description = description;

@@ -3,6 +3,7 @@ import Image from "./Image";
 
 export default class Report {
     id: string;
+    userId: string;
     floodId: string;
     latitude: number;
     longitude: number;
@@ -21,6 +22,7 @@ export default class Report {
     };
 
     constructor(id: string = '',
+                userId: string,
                 floodId: string,
                 latitude: number,
                 longitude: number,
@@ -34,6 +36,7 @@ export default class Report {
                 hazards: any,
     ) {
         this.id = id;
+        this.userId = userId;
         this.floodId = floodId;
         this.latitude = latitude;
         this.longitude = longitude;
