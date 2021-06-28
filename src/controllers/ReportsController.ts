@@ -41,7 +41,7 @@ export default {
             hazards
         } = request.body;
         const hazardsJson = JSON.parse(hazards);
-        const requestHazards = hazardsJson.map(hazard=> {
+        const requestHazards = hazardsJson.map(hazard => {
             return {type: hazard.type, status: hazard.status}
         });
 

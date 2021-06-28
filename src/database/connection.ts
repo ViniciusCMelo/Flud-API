@@ -47,7 +47,7 @@ export function uploadImage(request: Request, response: Response, next){
 };
 */
 
-export function uploadImage(request: Request, response: Response, next){
+export function uploadImage(request: Request, response: Response, next: NextFunction){
     if (!request.files) return next();
     const requestImages = request.files as Express.Multer.File[];
     const images = requestImages.map(image => {
