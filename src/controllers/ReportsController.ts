@@ -14,7 +14,7 @@ export default {
             // @ts-ignore
             reportsRepository.forEach((doc) => {
                 reports.push(new Report(doc.id, doc.data().floodId, doc.data().latitude, doc.data().longitude,
-                    doc.data().source, doc.data().description, doc.data().reportDate, doc.data().status, doc.data().range,
+                    doc.data().source, doc.data().description, doc.data().waterLevel, doc.data().reportDate, doc.data().status, doc.data().range,
                     doc.data().images, doc.data().hazards));
             });
             return response.status(200).json(reports);
@@ -35,6 +35,7 @@ export default {
             longitude,
             source,
             description,
+            waterLevel,
             reportDate,
             status,
             range,
@@ -45,13 +46,14 @@ export default {
             return {type: hazard.type, status: hazard.status}
         });
 
-        const report = new Report('', floodId, latitude, longitude, source, description, reportDate, status, range,
+        const report = new Report('', floodId, latitude, longitude, source, description, waterLevel, reportDate, status, range,
             images, requestHazards);
         const doc = await db.collection("reports").add({
             floodId: report.floodId,
             latitude: report.latitude,
             longitude: report.longitude,
             description: report.description,
+            waterLevel: report.waterLevel,
             source: report.source,
             reportDate: report.reportDate,
             status: report.status,

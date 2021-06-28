@@ -11,7 +11,7 @@ export default {
         // @ts-ignore
         floodRepository.forEach((doc) => {
             floods.push(new Flood(doc.id, doc.data().latitude, doc.data().longitude, doc.data().type, doc.data().source,
-                doc.data().description, doc.data().startDate,doc.data().finishDate, doc.data().status, doc.data().range,
+                doc.data().description, doc.data().waterLevel, doc.data().startDate, doc.data().finishDate, doc.data().status, doc.data().range,
                 doc.data().reports, doc.data().images, doc.data().hazards));
         });
         return response.status(200).json(floods);
@@ -28,6 +28,7 @@ export default {
             type,
             source,
             description,
+            waterLevel,
             startDate,
             finishDate,
             status,
@@ -39,15 +40,15 @@ export default {
         const requestHazards = hazardsJson.map(hazard => {
             return {type: hazard.type, status: hazard.status}
         });
-        const flood = new Flood('', latitude, longitude, type, source, description, startDate, finishDate, status, range,
+        const flood = new Flood('', latitude, longitude, type, source, description, waterLevel, startDate, finishDate, status, range,
             reports, images, requestHazards);
-        console.log(flood);
         await db.collection("floods").add({
             latitude: flood.latitude,
             longitude: flood.longitude,
             type: flood.type,
             source: flood.source,
             description: flood.description,
+            waterLevel: flood.waterLevel,
             startDate: flood.startDate,
             finishDate: flood.finishDate,
             status: Boolean(flood.status),

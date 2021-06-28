@@ -9,6 +9,7 @@ export default class Flood {
     type: string;
     source: string;
     description: string;
+    waterLevel: string;
     startDate: string;
     finishDate: string;
     status: boolean;
@@ -28,6 +29,7 @@ export default class Flood {
                 type: string,
                 source: string,
                 description: string,
+                waterLevel: string,
                 startDate: string,
                 finishDate: string,
                 status: boolean = true,
@@ -40,6 +42,7 @@ export default class Flood {
         this.latitude = latitude;
         this.longitude = longitude;
         this.description = description;
+        this.waterLevel = waterLevel;
         this.source = source;
         this.type = type;
         this.startDate = startDate;

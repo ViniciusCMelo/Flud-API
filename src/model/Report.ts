@@ -7,6 +7,7 @@ export default class Report {
     latitude: number;
     longitude: number;
     description: string;
+    waterLevel: string;
     source: string;
     reportDate: string;
     status: boolean;
@@ -25,6 +26,7 @@ export default class Report {
                 longitude: number,
                 source: string,
                 description: string,
+                waterLevel: string,
                 reportDate: string,
                 status: boolean,
                 range: number,
@@ -36,6 +38,7 @@ export default class Report {
         this.latitude = latitude;
         this.longitude = longitude;
         this.description = description;
+        this.waterLevel = waterLevel;
         this.source = source;
         this.reportDate = reportDate;
         this.status = status;
