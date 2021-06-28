@@ -3,7 +3,7 @@ import Image from './Image';
 import Hazard from "./Hazard";
 
 export default class Flood {
-    id: number;
+    id: string;
     latitude: number;
     longitude: number;
     type: string;
@@ -22,7 +22,8 @@ export default class Flood {
         status: true,
     };
 
-    constructor(latitude: number,
+    constructor(id: string,
+                latitude: number,
                 longitude: number,
                 type: string,
                 source: string,
@@ -35,6 +36,7 @@ export default class Flood {
                 images: any,
                 hazards: any,
     ) {
+        this.id = id;
         this.latitude = latitude;
         this.longitude = longitude;
         this.description = description;

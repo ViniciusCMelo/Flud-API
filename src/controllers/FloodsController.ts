@@ -5,16 +5,18 @@ import Report from "../model/Report";
 
 export default {
 
-   /* async index(request: Request, response: Response) {
-        const id = request.body;
-        const userRepository = await db.collection('users').get();
-        const users: Flood[] = [];
+    async index(request: Request, response: Response) {
+        const floodRepository = await db.collection('floods').where('status', '==', true).get();
+        const floods: Flood[] = [];
         // @ts-ignore
-        userRepository.forEach((doc) => {
-            users.push(new Flood(doc.id, doc.data().name, doc.data().email, doc.data().profilePictureUrl));
+        floodRepository.forEach((doc) => {
+            floods.push(new Flood(doc.id, doc.data().latitude, doc.data().longitude, doc.data().type, doc.data().source,
+                doc.data().description, doc.data().startDate,doc.data().finishDate, doc.data().status, doc.data().range,
+                doc.data().reports, doc.data().images, doc.data().hazards));
         });
-        return response.status(200).json(users);
-    },*/
+        return response.status(200).json(floods);
+    },
+
     async create(request: Request, response: Response) {
         const requestImages = request.files as Express.Multer.File[];
         const images = requestImages.map(image => {
@@ -37,8 +39,8 @@ export default {
         const requestHazards = hazardsJson.map(hazard => {
             return {type: hazard.type, status: hazard.status}
         });
-        const flood = new Flood(latitude, longitude,type,source, description, startDate,finishDate, status, range,
-            reports,images, requestHazards);
+        const flood = new Flood('', latitude, longitude, type, source, description, startDate, finishDate, status, range,
+            reports, images, requestHazards);
         console.log(flood);
         await db.collection("floods").add({
             latitude: flood.latitude,
@@ -48,7 +50,7 @@ export default {
             description: flood.description,
             startDate: flood.startDate,
             finishDate: flood.finishDate,
-            status: flood.status,
+            status: Boolean(flood.status),
             range: flood.range,
             reports: flood.reports,
             images: flood.images,

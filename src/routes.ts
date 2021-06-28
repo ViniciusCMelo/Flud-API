@@ -16,6 +16,7 @@ const Multer = multer({
 routes.post('/users', UsersController.create);
 routes.get('/users', UsersController.index);
 
+routes.get('/floods', FloodsController.index);
 routes.post('/floods', Multer.array("images"), uploadImage, FloodsController.create);
 
 routes.post('/hazards', HazardsController.create);
