@@ -8,6 +8,7 @@ export default {
 
     async show(request: Request, response: Response) {
         const {floodId} = request.params;
+        console.log(floodId);
         try {
             const reportsRepository = await db.collection('reports').where('floodId', '==', floodId).get();
             const reports: Report[] = [];

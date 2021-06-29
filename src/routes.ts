@@ -17,6 +17,8 @@ routes.post('/users', UsersController.create);
 routes.get('/users', UsersController.index);
 
 routes.get('/floods', FloodsController.index);
+routes.get('/floods/:floodId', FloodsController.show);
+
 routes.post('/floods', Multer.array("images"), uploadImage, FloodsController.create);
 
 routes.post('/hazards', HazardsController.create);

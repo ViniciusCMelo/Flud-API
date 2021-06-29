@@ -5,6 +5,23 @@ import Report from "../model/Report";
 
 export default {
 
+
+    async show(request: Request, response: Response) {
+        const {floodId} = request.params;
+        try {
+            const floodRepository = await db.collection('floods').doc(`${floodId}`).get();
+            console.log(floodRepository);
+               const flood = new Flood(floodRepository.id, floodRepository.data().userId, floodRepository.data().latitude,
+                   floodRepository.data().longitude, floodRepository.data().type, floodRepository.data().source,
+                   floodRepository.data().description, floodRepository.data().waterLevel, floodRepository.data().startDate,
+                   floodRepository.data().finishDate, floodRepository.data().status, floodRepository.data().range,
+                   floodRepository.data().reports, floodRepository.data().images, floodRepository.data().hazards);
+            return response.status(200).json(flood);
+        } catch (e) {
+            return response.status(500).json(e);
+        }
+
+    },
     async index(request: Request, response: Response) {
         const floodRepository = await db.collection('floods').where('status', '==', true).get();
         const floods: Flood[] = [];
@@ -18,6 +35,7 @@ export default {
     },
 
     async create(request: Request, response: Response) {
+        console.log(request.body);
         const requestImages = request.files as Express.Multer.File[];
         const images = requestImages.map(image => {
             // @ts-ignore
